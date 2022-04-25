@@ -16,7 +16,7 @@ document.addEventListener('page:loaded', () => {
     }
 
     const imageTitle = $image.attr('title') || $image.attr('alt');
-    if (imageTitle) {
+    if (false) {
       // Do not append image-caption if pandoc has already created a figcaption
       if (!$imageWrapLink.next('figcaption').length) {
         $imageWrapLink.append(`<p class="image-caption">${imageTitle}</p>`);
