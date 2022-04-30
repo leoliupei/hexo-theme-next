@@ -4,11 +4,13 @@
 
 const crypto = require('crypto');
 const { parse } = require('url');
-const nextFont = require('./font');
+// const nextFont = require('./font');
+const LXGWFont = require('./LXGW-font');
 const nextUrl = require('./next-url');
 const { getVendors } = require('../events/lib/utils');
 
-hexo.extend.helper.register('next_font', nextFont);
+// hexo.extend.helper.register('next_font', nextFont);
+hexo.extend.helper.register('LXGW_font', LXGWFont);
 hexo.extend.helper.register('next_url', nextUrl);
 
 hexo.extend.helper.register('next_inject', function(point) {
@@ -67,7 +69,8 @@ hexo.extend.helper.register('next_pre', function() {
   const h = enable ? host || 'https://fonts.googleapis.com' : '';
   const i = links[internal];
   const p = links[plugins];
-  return [...new Set([h, i, p].filter(origin => origin))].map(
+  const l = 'https://cdn.jsdelivr.net'; // LXGW字体CDN
+  return [...new Set([h, i, p, l].filter(origin => origin))].map(
     origin => `<link rel="preconnect" href="${origin}" crossorigin>`
   ).join('\n');
 });

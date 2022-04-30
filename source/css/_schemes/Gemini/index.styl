@@ -29,6 +29,11 @@
     background: var(--content-bg-color);
     border-radius: $border-radius-inner;
     box-shadow: $box-shadow-inner;
+    margin-top: 12px;
+
+    +tablet-mobile() {
+      margin-top: initial;
+    }
 
     &:not(:first-child):not(.sub-menu) {
       border-radius: $border-radius;
@@ -67,11 +72,11 @@
 // ==================================================
 .post-body {
   h1, h2 {
-    border-bottom: 1px solid $body-bg-color;
+    border-bottom: 1px solid transparent;
   }
 
   h3 {
-    border-bottom: 1px dotted $body-bg-color;
+    border-bottom: 1px dotted transparent;
   }
 }
 
