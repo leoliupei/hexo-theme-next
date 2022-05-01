@@ -1,5 +1,8 @@
 .site-brand-container {
-  background: var(--theme-color);
+  background: hexo-config('header_image') ? url(hexo-config('header_image')) : var(--theme-color);
+  background-size: cover;
+  border-top-left-radius: 8px
+  border-top-right-radius: 8px
 
   .site-nav-on & {
     +tablet-mobile() {
